@@ -9,6 +9,7 @@ import sys
 # Static paths for Vosk model and bad words list
 MODEL_PATH = r"C:\Users\buddy\Desktop\Code Projects\SoapBar\VoskModels\vosk-model-en-us-0.22-lgraph\vosk-model-en-us-0.22-lgraph"
 BAD_WORDS_PATH = r"C:\Users\buddy\Desktop\Code Projects\SoapBar\BadWordList.txt"
+ICON_PATH = r"C:\Users\buddy\Desktop\Code Projects\SoapBar\images\soap bar.ico"  # Path to your .ico file
 
 def browse_file(entry, filetypes=None):
     filename = filedialog.askopenfilename(initialdir="/", title="Select File", filetypes=filetypes)
@@ -66,7 +67,8 @@ def process_video():
 
 # Create main window
 window = tk.Tk()
-window.title("SoapBar Video Processor")
+window.title("SoapBar AI Censor")
+window.iconbitmap(ICON_PATH)  # Set the application icon
 
 # Redirect stdout to the terminal text widget
 terminal_text = ScrolledText(window, wrap=tk.WORD, height=20, width=80)
