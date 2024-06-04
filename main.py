@@ -32,6 +32,9 @@ class StdoutRedirector:
     def flush(self):
         pass
 
+def update_terminal(message):
+    print(message)
+
 def process_video():
     video_path = video_entry.get()
     output_directory = output_entry.get()
@@ -51,7 +54,7 @@ def process_video():
 
     def run_processing():
         bad_words_list = SoapBar.load_bad_words(BAD_WORDS_PATH)
-        output_video = SoapBar.process_video(video_path, bad_words_list, output_directory, MODEL_PATH, custom_sound_path)
+        output_video = SoapBar.process_video(video_path, bad_words_list, output_directory, MODEL_PATH, custom_sound_path, update_terminal)
         if output_video:
             messagebox.showinfo("Success", f"Processed video saved to {output_video}")
         else:
@@ -99,4 +102,3 @@ process_button = tk.Button(window, text="Process Video", command=process_video)
 process_button.grid(row=3, column=0, columnspan=3, pady=10)
 
 window.mainloop()
-
